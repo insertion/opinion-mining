@@ -13,7 +13,7 @@ BOT_NAME = 'boxofficeData'
 
 SPIDER_MODULES = ['boxofficeData.spiders']
 NEWSPIDER_MODULE = 'boxofficeData.spiders'
-
+ITEM_PIPELINES ={'boxofficeData.pipelines.BoxofficedataPipeline':1}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'boxofficeData (+http://www.yourdomain.com)'

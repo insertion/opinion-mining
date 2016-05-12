@@ -1,16 +1,19 @@
 from scrapy.exceptions import DropItem
 
-
+import codecs
+import json
 class FilterWordsPipeline(object):
     """A pipeline for filtering out items which contain certain words in their
     description"""
 
     # put all words in lowercase
-    words_to_filter = ['politics', 'religion']
+    def __init__(self):
+        self.file = codecs.open('items.json','wb',encoding='utf-8')
 
     def process_item(self, item, spider):
-        for word in self.words_to_filter:
-            if word in unicode(item['description']).lower():
-                raise DropItem("Contains forbidden word: %s" % word)
-        else:
-            return item
+        line = json.dumps(dict(item),ensure_ascii=False) + "\n"
+        #line=unicode.encode(line,'utf-8');
+        self.file.write(line)
+        return item
+    def spider_closed(self, spider):
+        self.file.close()

@@ -9,16 +9,19 @@ class BoxofficeSpider(scrapy.Spider):
     ]
     def parse(self, response):
         items=[]
+        #file = open('page.html','wb')
+        #file.write(response.body)
+        #file.close()
         tr=response.xpath('//tr[@class="colora"]')
         for td in tr:
             item=BoxofficedataItem()
-            item['film_name']=td.xpath('td[1]/a/@title').extract()[0].encode('utf-8')
+            #file.write(td.xpath('td[1]/a/@title').extract())
+            item['film_name']=td.xpath('td[1]/a/@title').extract()
             item['film_year']=td.xpath('td[7]/text()').extract()
             item['boxoffice']=td.xpath('td[3]/text()').extract()
-            item['film_month']='王雷'
-            #items.append(item)
-            yield item
-        #file = open('page.html','wb')
-        #file.write(items)
+            #item['film_month']='王雷'
+            items.append(item)
+            #yield item
         #file.close()
-        pass
+        return items
+        
