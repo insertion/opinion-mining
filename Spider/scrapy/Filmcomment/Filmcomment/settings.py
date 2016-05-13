@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for boxofficeData project
+# Scrapy settings for Filmcomment project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,15 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'boxofficeData'
-DOWNLOAD_DELAY = 2
-#防止爬虫程序被ban
-SPIDER_MODULES = ['boxofficeData.spiders']
-NEWSPIDER_MODULE = 'boxofficeData.spiders'
-ITEM_PIPELINES ={'boxofficeData.pipelines.BoxofficedataPipeline':1}
+BOT_NAME = 'Filmcomment'
+
+SPIDER_MODULES = ['Filmcomment.spiders']
+NEWSPIDER_MODULE = 'Filmcomment.spiders'
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'boxofficeData (+http://www.yourdomain.com)'
+#USER_AGENT = 'Filmcomment (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS=32
@@ -45,13 +44,13 @@ ITEM_PIPELINES ={'boxofficeData.pipelines.BoxofficedataPipeline':1}
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'boxofficeData.middlewares.MyCustomSpiderMiddleware': 543,
+#    'Filmcomment.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'boxofficeData.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'Filmcomment.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +62,7 @@ ITEM_PIPELINES ={'boxofficeData.pipelines.BoxofficedataPipeline':1}
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'boxofficeData.pipelines.SomePipeline': 300,
+#    'Filmcomment.pipelines.SomePipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
