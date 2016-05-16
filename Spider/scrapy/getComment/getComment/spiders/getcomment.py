@@ -39,7 +39,7 @@ class GetcommentSpider(scrapy.Spider):
         file=open('film_URL.json')
         for line in file.readlines():
             js=json.loads(line)
-            url=js['url']+'comments'
+            url=js['url'][0]+'comments'
             self.start_urls.append(url)
         file.close()
     
@@ -55,4 +55,6 @@ class GetcommentSpider(scrapy.Spider):
         file.write(commentlines)
         if next:
             next_url=response.url.split('?')[0]+next[0]
-            return scrapy.Request(next_url,self.parse,cookies=self.cookie)
+            if int(next[0].split('=')[1].split('&')[0]) < 10000:
+            #只取前10000条评论
+                return scrapy.Request(next_url,self.parse,cookies=self.cookie)
